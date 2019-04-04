@@ -1,0 +1,26 @@
+{% extends "omni_bnk/layouts/base.html" %}
+{% load static %}
+{% block header_css %}
+    <link rel="stylesheet" href="{% static "omni_bnk/css/login.css" %}" >
+{% endblock %}
+{% block main %}
+    <form class="form-signin" method="POST" action="{% url 'omni_bnk:sign_up' %}" >
+    {% csrf_token %}
+        <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
+        {% for field in form %}
+            {% if field.errors %}
+            <div class="alert alert-danger">
+                {% for error in field.errors %}
+                    <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endfor %}
+        <label for="inputEmail" class="sr-only">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password1" class="form-control" placeholder="Password" required>
+        <input type="password" name="password2" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+{% endblock %}

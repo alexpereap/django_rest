@@ -1,0 +1,19 @@
+{% extends "omni_bnk/layouts/dashboard.html" %}
+{% load static %}
+
+{% block main %}
+<main role="main" class="container">
+  {% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endif %}
+    {% endfor %}
+  {% endif %}
+  <div id="ReactMovieApp"><!-- Content filled by MovieApp.js React component --></div>
+</main>
+{% endblock %}
+
+{% block footer_scripts %}
+<script type="text/javascript" src="{% static "omni_bnk/js/MovieApp.js" %}"></script>
+{%endblock%}

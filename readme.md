@@ -32,7 +32,7 @@ visit http://localhost:8000
 ## Methods:<br />
 GET: /api/movies/ (get all of the movies)<br />
 GET: /api/movies?recommended (get only recommended movies)<br />
-GET: /api/movies/movie_id (get a specific movie)
+GET: /api/movies/movie_id (get a specific movie)<br />
 POST: /api/movies (stores a movie)<br />
 payload:
 ```json
